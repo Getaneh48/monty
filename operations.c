@@ -9,11 +9,11 @@ void (*get_operations(char *opcode))(stack_t **stack, unsigned int line_number)
 
 	int count = 2, i = 0, tr = 0;
 	
-		if (opcode[strlen(opcode) - 1] == '\n')
-		{
-			tr = 1;
-			opcode = remove_newline(opcode);
-		}
+	if (opcode[strlen(opcode) - 1] == '\n')
+	{
+		tr = 1;
+		opcode = remove_newline(opcode);
+	}
 	while (i < count)
 	{
 

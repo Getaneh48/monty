@@ -9,8 +9,14 @@ int _isdigit(char *str)
 	{
 		if ((int)str[i] == 0)
 			break;
+		 /* check for negative sign. */
+		if ((int)str[i] == 45 && isnumber((int)str[i + 1]))
+		{
+			i++;
+			continue;
+		}
 		
-		if ((int)str[i] < 48 || (int)str[i] > 57)
+		if (isnumber((int)str[i]) == 0)
 		{
 			digit = 0;
 			break;
@@ -19,4 +25,13 @@ int _isdigit(char *str)
 	}
 
 	return (digit);
+}
+
+int isnumber(int n)
+{
+	int result = 1;
+
+	if (n < 48 || n > 57)
+		result = 0;
+	return (result);
 }

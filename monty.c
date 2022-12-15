@@ -17,8 +17,8 @@ void interprate(stack_t **stack, char **tokens, size_t line_no)
 	void (*f)(stack_t **stack, unsigned int line_number);
 	char *token = tokens[0];
 
-			printf("no val - %s\n", token);
-	
+	if (token == NULL)
+		return;
 	if (strlen(token) > 1 || (strlen(token) == 1 &&(int)token[strlen(token) - 1] != 10))
 	{
 		f = get_operations(tokens[0]);
@@ -30,15 +30,14 @@ void interprate(stack_t **stack, char **tokens, size_t line_no)
 	
 		if (count_array(tokens) > 1) 
 		{
-			if (_isdigit(tokens[1]))
+			if (strcmp(tokens[0], "push") == 0 && _isdigit(tokens[1]))
 			{
-				stack_value = atoi(tokens[1]);
+				stack_value = tokens[1];
 				f(stack, line_no);
 			}
 			else
 			{
-				fprintf(stderr, "L%ld: IInvalid instruction\n", line_no);
-				exit(EXIT_FAILURE);
+				f(stack, line_no);
 			}
 		}
 		else
@@ -48,7 +47,7 @@ void interprate(stack_t **stack, char **tokens, size_t line_no)
 	}
 }
 
-int stack_value = 0;
+char *stack_value = NULL;
 
 int main(int argc, char *argv[])
 {
