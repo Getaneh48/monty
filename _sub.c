@@ -15,7 +15,7 @@ __attribute__((unused)) unsigned int line_number)
 
 		if (count_stack(*stack) < 2)
 		{
-			fprintf(stderr, "L%d: can't sub, stack too short", line_number);
+			fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 		n = (*stack)->next->n - (*stack)->n;
@@ -26,7 +26,7 @@ __attribute__((unused)) unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
