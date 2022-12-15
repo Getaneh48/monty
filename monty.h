@@ -51,6 +51,8 @@ void stack_swap(stack_t **stack, unsigned int line_number);
 void stack_add(stack_t **stack, unsigned int line_number);
 void stack_sub(stack_t **stack, unsigned int line_number);
 void stack_div(stack_t **stack, unsigned int line_number);
+void stack_mul(stack_t **stack, unsigned int line_number);
+void stack_mod(stack_t **stack, unsigned int line_number);
 char *remove_newline(char *str);
 int _isdigit(char *str);
 int isnumber(int n);

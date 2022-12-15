@@ -15,10 +15,12 @@ void (*get_operations(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"swap", stack_swap},
 		{"add", stack_add},
 		{"sub", stack_sub},
-		{"div", stack_div}
+		{"div", stack_div},
+		{"mul", stack_mul},
+		{"mod", stack_mod}
 	};
 
-	int count = 8, i = 0, tr = 0;
+	int count = 10, i = 0, tr = 0;
 
 	if (opcode[strlen(opcode) - 1] == '\n')
 	{
