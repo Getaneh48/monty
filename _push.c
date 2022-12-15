@@ -10,7 +10,7 @@ __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
-	if (!_isdigit(stack_value))
+	if (stack_value == NULL || !_isdigit(stack_value))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
