@@ -29,7 +29,7 @@ void interprate(stack_t **stack, char **tokens, size_t line_no)
 	void (*f)(stack_t **stack, unsigned int line_number);
 	char *token = tokens[0];
 
-	if (token == NULL)
+	if (token == NULL || token[0] == '#')
 		return;
 	if (strlen(token) > 1 || (strlen(token) == 1 &&
 		(int)token[strlen(token) - 1] != 10))
