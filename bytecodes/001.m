@@ -4,5 +4,6 @@ push 2
 push        8
              pall
           pall tupapiesteban
-push 6
+push m6
+pall
         

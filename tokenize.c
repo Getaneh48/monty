@@ -11,7 +11,7 @@ char **tokenize(char *str, char *delim)
 	char **tokens = (char **) malloc((totalt + 2) * sizeof(char *));
 	char *token = NULL;
 	size_t i = 1;
-	
+
 	token = strtok(str, delim);
 	tokens[0] = token;
 	while (token != NULL)

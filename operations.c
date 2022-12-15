@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+* get_operations - returns a function for the given opcode.
+* @opcode: operation code
+* Return: a function
+*/
 void (*get_operations(char *opcode))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t inst[] = {
@@ -8,7 +13,7 @@ void (*get_operations(char *opcode))(stack_t **stack, unsigned int line_number)
 	};
 
 	int count = 2, i = 0, tr = 0;
-	
+
 	if (opcode[strlen(opcode) - 1] == '\n')
 	{
 		tr = 1;

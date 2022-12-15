@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+* _isdigit - check if a string is a digit or not.
+* @str: string value.
+* Return: 1 on success 0 on failure.
+*/
 int _isdigit(char *str)
 {
 	int i = 0;
@@ -15,7 +20,7 @@ int _isdigit(char *str)
 			i++;
 			continue;
 		}
-		
+
 		if (isnumber((int)str[i]) == 0)
 		{
 			digit = 0;
@@ -27,6 +32,11 @@ int _isdigit(char *str)
 	return (digit);
 }
 
+/**
+* isnumber - check if an aschii value is a number.
+* @n: aschii value
+* Return: 1 success 0 failure.
+*/
 int isnumber(int n)
 {
 	int result = 1;

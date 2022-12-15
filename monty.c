@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+* count_array - returns the number of elements
+* in the array.
+* @arr: array
+* Return: number of elements.
+*/
 int count_array(char **arr)
 {
 	size_t i = 0;
@@ -12,6 +18,12 @@ int count_array(char **arr)
 	return (i);
 }
 
+/**
+* interprate - interprates the byte code of a monty file.
+* @stack: head of the stack
+* @tokens: array of strings.
+* @line_no: integer value.
+*/
 void interprate(stack_t **stack, char **tokens, size_t line_no)
 {
 	void (*f)(stack_t **stack, unsigned int line_number);
@@ -19,7 +31,8 @@ void interprate(stack_t **stack, char **tokens, size_t line_no)
 
 	if (token == NULL)
 		return;
-	if (strlen(token) > 1 || (strlen(token) == 1 &&(int)token[strlen(token) - 1] != 10))
+	if (strlen(token) > 1 || (strlen(token) == 1 &&
+		(int)token[strlen(token) - 1] != 10))
 	{
 		f = get_operations(tokens[0]);
 		if (f == NULL)
@@ -27,18 +40,11 @@ void interprate(stack_t **stack, char **tokens, size_t line_no)
 			fprintf(stderr, "L%ld: Invalid instruction\n", line_no);
 			exit(EXIT_FAILURE);
 		}
-	
-		if (count_array(tokens) > 1) 
+
+		if (count_array(tokens) > 1)
 		{
-			if (strcmp(tokens[0], "push") == 0 && _isdigit(tokens[1]))
-			{
-				stack_value = tokens[1];
-				f(stack, line_no);
-			}
-			else
-			{
-				f(stack, line_no);
-			}
+			stack_value = tokens[1];
+			f(stack, line_no);
 		}
 		else
 		{
@@ -49,6 +55,12 @@ void interprate(stack_t **stack, char **tokens, size_t line_no)
 
 char *stack_value = NULL;
 
+/**
+* main - entry point of the application.
+* @argc: no of arguments.
+* @argv: array of arguments.
+* Return: 1 on failure, 0 on success.
+*/
 int main(int argc, char *argv[])
 {
 	char *line_buf = NULL;
@@ -61,14 +73,13 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		return EXIT_FAILURE;
+		return (EXIT_FAILURE);
 	}
-  
 	fp = fopen(argv[1], "r");
 	if (!fp)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		return EXIT_FAILURE;
+		return (EXIT_FAILURE);
 	}
 
 	/* Loop through until we are done with the file. */
@@ -88,5 +99,5 @@ int main(int argc, char *argv[])
 	/* Close the file */
 	fclose(fp);
 
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
 }
