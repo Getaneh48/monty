@@ -12,10 +12,11 @@ void (*get_operations(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"pall", stack_pall},
 		{"pint", stack_pint},
 		{"pop", stack_pop},
-		{"swap", stack_swap}
+		{"swap", stack_swap},
+		{"add", stack_add}
 	};
 
-	int count = 5, i = 0, tr = 0;
+	int count = 6, i = 0, tr = 0;
 
 	if (opcode[strlen(opcode) - 1] == '\n')
 	{
