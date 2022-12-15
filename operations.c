@@ -19,10 +19,11 @@ void (*get_operations(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"mul", stack_mul},
 		{"mod", stack_mod},
 		{"nop", stack_nop},
-		{"pchar", stack_pchar}
+		{"pchar", stack_pchar},
+		{"pstr", stack_pstr}
 	};
 
-	int count = 12, i = 0, tr = 0;
+	int count = 13, i = 0, tr = 0;
 
 	if (opcode[strlen(opcode) - 1] == '\n')
 	{
