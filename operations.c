@@ -10,10 +10,11 @@ void (*get_operations(char *opcode))(stack_t **stack, unsigned int line_number)
 	instruction_t inst[] = {
 		{"push", stack_push},
 		{"pall", stack_pall},
-		{"pint", stack_pint}
+		{"pint", stack_pint},
+		{"pop", stack_pop}
 	};
 
-	int count = 3, i = 0, tr = 0;
+	int count = 4, i = 0, tr = 0;
 
 	if (opcode[strlen(opcode) - 1] == '\n')
 	{

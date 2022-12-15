@@ -46,6 +46,7 @@ void (*get_operations(char *opcode))(stack_t **stack, unsigned int line_number);
 void stack_push(stack_t **stack, unsigned int line_number);
 void stack_pall(stack_t **stack, unsigned int line_number);
 void stack_pint(stack_t **stack, unsigned int line_number);
+void stack_pop(stack_t **stack, unsigned int line_number);
 char *remove_newline(char *str);
 int _isdigit(char *str);
 int isnumber(int n);
