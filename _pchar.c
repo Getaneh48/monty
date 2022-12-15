@@ -10,7 +10,7 @@ __attribute__((unused)) unsigned int line_number)
 {
 	if (*stack != NULL)
 	{
-		if ((*stack)->n < 0 && (*stack)->n > 127)
+		if ((*stack)->n < 0 || (*stack)->n > 127)
 		{
 			fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 			exit(EXIT_FAILURE);
