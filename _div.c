@@ -15,7 +15,7 @@ __attribute__((unused)) unsigned int line_number)
 
 		if (count_stack(*stack) < 2)
 		{
-			fprintf(stderr, "L%d: can't div, stack too short", line_number);
+			fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 		if ((*stack)->n == 0)
@@ -28,5 +28,10 @@ __attribute__((unused)) unsigned int line_number)
 		*stack = (*stack)->next;
 		(*stack)->prev = NULL;
 		free(node);
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 }
