@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 	{
 		/* Increment our line count */
 		line_no++;
-		tokens = tokenize(line_buf, " ");
+		tokens = tokenize(line_buf, "\t\r\n ");
 		interprate(&stack, tokens, line_no);
 		free(tokens);
 	}
