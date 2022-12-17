@@ -41,8 +41,4 @@ __attribute__((unused)) unsigned int line_number)
 		free(temp); /* remove the first node */
 
 	}
-	else
-	{
-		exit(EXIT_FAILURE);
-	}
 }
